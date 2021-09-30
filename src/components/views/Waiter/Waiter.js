@@ -7,6 +7,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import TabletMacIcon from '@material-ui/icons/TabletMac';
 
 const demoContent = [
   { id: '1', status: 'free', order: null },
@@ -23,12 +26,12 @@ const renderActions = status => {
       return (
         <>
           <Button>thinking</Button>
-          <Button>new order</Button>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
         </>
       );
     case 'thinking':
       return (
-        <Button>new order</Button>
+        <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
       );
     case 'ordered':
       return (
@@ -53,13 +56,16 @@ const renderActions = status => {
 
 const Waiter = () => (
   <Paper className={styles.component}>
-    <Table>
+    <Avatar className={styles.avatar}>
+      <TabletMacIcon className={styles.icon}/>
+    </Avatar>
+    <Table className={styles.table}>
       <TableHead>
-        <TableRow>
-          <TableCell>Table</TableCell>
-          <TableCell>Status</TableCell>
-          <TableCell>Order</TableCell>
-          <TableCell>Action</TableCell>
+        <TableRow className={styles.tablehead}>
+          <TableCell className={styles.title}>Table</TableCell>
+          <TableCell className={styles.title}>Status</TableCell>
+          <TableCell className={styles.title}>Order</TableCell>
+          <TableCell className={styles.title}>Action</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -73,7 +79,7 @@ const Waiter = () => (
             </TableCell>
             <TableCell>
               {row.order && (
-                <Button to={`${process.env.PUBLIC_URL}/panel/waiter/order/${row.order}`}>
+                <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
                   {row.order}
                 </Button>
               )}

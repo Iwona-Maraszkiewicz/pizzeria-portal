@@ -2,4 +2,36 @@
 
 .component {
   padding: $base-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title{
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  margin-top: 60px;
+}
+.table{
+  max-width:600px;
+  .tablehead{
+    background-color:$main;
+  .titletable{
+    color:$text;
+  }
+}
+}
+.avatar {
+  background: $main;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 60px;
+  width: 60px;
+}
+.icon {
+  height: 42px;
+  width: 42px;
 }
