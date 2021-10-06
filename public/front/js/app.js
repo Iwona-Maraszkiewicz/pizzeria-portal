@@ -13,7 +13,7 @@ const app = {
     const idFromHash = window.location.hash.replace('#/', '');
     let pageMatchingHash = thisApp.pages[0].id;
     for(let page of thisApp.pages){
-      if(page.id == idFromHash){
+      if(page.id === idFromHash){
         pageMatchingHash = page.id;
         break;
       }
@@ -34,12 +34,12 @@ const app = {
     const thisApp = this;
     for(let page of thisApp.pages){
       console.log(page);
-      page.classList.toggle(classNames.pages.active, page.id == pageId);
+      page.classList.toggle(classNames.pages.active, page.id === pageId);
     }
     for(let link of thisApp.navLinks){
       link.classList.toggle(
         classNames.nav.active,
-        link.getAttribute('href') == '#' + pageId
+        link.getAttribute('href') === '#' + pageId
       );
     }
   },
